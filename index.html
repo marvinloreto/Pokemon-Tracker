@@ -16,19 +16,24 @@
   <header>
     <div class="row navbar">
       <div class="column-full">
-        <h1 class="title-heading">Favorite Pok&eacute;mon</h1>
+        <h1 class="title-heading"><a href="#" class="nav-home">Favorite Pok&eacute;mon</a></h1>
         <p class="link-nav">List</p>
       </div>
     </div>
   </header>
   <main class="container main">
-    <div class="row">
+    <div class="row searchbox-container view" data-view="home-page">
       <div class="column-full">
         <form action="" class="poke-submit">
           <p>Search for your Pok&eacute;mon</p>
-          <input class="poke-submit" type="text" id="character-input" placeholder="Search...">
+          <input class="poke-input" type="text" id="character-input" placeholder="Pok&eacute;mon Name...">
           <button class="button-search" type="submit">Search</button>
         </form>
+      </div>
+    </div>
+    <div class="row result-container view hidden" data-view="results-page">
+      <div class="column-full">
+        <h3>Search Results:</h3>
       </div>
     </div>
   </main>

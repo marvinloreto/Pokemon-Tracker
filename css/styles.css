@@ -11,7 +11,8 @@ body {
 }
 
 form {
-  background-color: #d9d9d9;
+  background-color: #222224;
+  color: #f0f0f0;
 }
 
 .title-heading {
@@ -29,4 +30,14 @@ form {
 
 .button-search {
   cursor: pointer;
+  background-color: #f0f0f0;
+}
+
+.hidden {
+  display: none;
+}
+
+.nav-home {
+  text-decoration: none;
+  color: white;
 }
