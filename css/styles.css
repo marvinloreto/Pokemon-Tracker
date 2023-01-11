@@ -1,0 +1,32 @@
+* {
+  font-family: "Noto Sans", sans-serif;
+}
+
+header {
+  background-color: #ee1515;
+}
+
+body {
+  background-color: #f0f0f0;
+}
+
+form {
+  background-color: #d9d9d9;
+}
+
+.title-heading {
+  padding-left: 20px;
+  margin-left: 20px;
+  color: white;
+}
+
+.link-nav {
+  padding-left: 20px;
+  margin-left: 20px;
+  padding-top: 10px;
+  color: white;
+}
+
+.button-search {
+  cursor: pointer;
+}
