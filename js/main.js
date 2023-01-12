@@ -4,6 +4,7 @@ var searchBox = document.querySelector('.searchbox-container');
 var resultsPage = document.querySelector('.result-container');
 var viewPage = document.querySelectorAll('.view');
 var ul = document.querySelector('.results-list');
+var detailsPage = document.querySelector('.details-container');
 
 formSearch.addEventListener('submit', handleSubmit);
 window.addEventListener('click', handleViewSwap);
@@ -43,12 +44,12 @@ function pokeName(name) {
     var character = xhr.response;
     ul.textContent = '';
 
-    ul.appendChild(getCharacterLi(character));
+    ul.appendChild(getCharacterList(character));
   });
   xhr.send();
 }
 
-function getCharacterLi(character) {
+function getCharacterList(character) {
   var li = document.createElement('li');
   li.setAttribute('class', 'column-full');
   li.setAttribute('data-character-id', character.id);
@@ -65,6 +66,8 @@ function getCharacterLi(character) {
   characterData.name = character.name.toUpperCase();
   characterData.image = character.sprites.other['official-artwork'].front_default;
   characterData.charID = character.id;
+  characterData.type1 = character.types[0].type.name;
+  characterData.statsHP = character.stats[0].base_stat;
 
   data.entries.push(CharacterData);
 
@@ -72,4 +75,33 @@ function getCharacterLi(character) {
   li.appendChild(img);
 
   return li;
+}
+
+ul.addEventListener('click', handleListClick);
+
+function handleListClick(event) {
+  var liCharacter = event.target.closest('li');
+
+  console.log(liCharacter);
+
+  var nameChar = document.querySelector('.details-container .name');
+  var imgChar = document.querySelector('.details-container .details-img');
+  var indexChar = document.querySelector('.details-container .pokedexNumber');
+  var typeChar = document.querySelector('.details-container .type');
+  var statsCharHP = document.querySelector('.details-container .stats');
+
+  for (let i = 0; i < data.entries.length; i++) {
+    if (liCharcter.getAttribute('data-character-id') === data.entries[i].CharID) {
+      nameChar.textContent = 'Name: ' + data.entries[i].name.toUpperCase();
+      indexChar.textContent = 'Pokedex Number: ' + data.entries[i].id;
+      typeChar.textContent = 'Type 1: ' + data.entries[i].types[0].type.name;
+      statsCharHP.textContent = 'HP Stat: ' + data.entries[i].stats[0].base_stat;
+      imgChar.setAttribute('src', data.entries[i].sprites.other['official-artwork'].front_default);
+    }
+  }
+
+  resultsPage.classList.add('hidden');
+  searchBox.classList.add('hidden');
+  detailsPage.classList.remove('hidden');
+  data.view = 'details-page';
 }

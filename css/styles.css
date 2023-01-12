@@ -49,6 +49,15 @@ ul {
   justify-content: center;
 }
 
+.results-list {
+  background-color: white;
+}
+
+.results-list:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
 .name {
   font-weight: bold;
   font-size: 2rem;
