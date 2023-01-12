@@ -41,3 +41,15 @@ form {
   text-decoration: none;
   color: white;
 }
+
+ul {
+  flex-wrap: wrap;
+  list-style: none;
+  padding-left: 0;
+  justify-content: center;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 2rem;
+}
