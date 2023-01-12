@@ -37,26 +37,39 @@ function handleSubmit(event) {
 
 function pokeName(name) {
   var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://pokeapi.co/api/v2/pokemon/' + name);
+  xhr.open('GET', 'https://pokeapi.co/api/v2/pokemon/' + name.toLowerCase());
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
+    var character = xhr.response;
     ul.textContent = '';
 
-    var li = document.createElement('li');
-    li.setAttribute('class', 'column-full');
-
-    var img = document.createElement('img');
-    img.setAttribute('src', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + xhr.response.id + '.png');
-    img.setAttribute('class', 'image');
-
-    var name = document.createElement('p');
-    name.textContent = xhr.response.name.toUpperCase();
-    name.setAttribute('class', 'name');
-
-    ul.appendChild(li);
-    li.appendChild(name);
-    li.appendChild(img);
-
+    ul.appendChild(getCharacterLi(character));
   });
   xhr.send();
+}
+
+function getCharacterLi(character) {
+  var li = document.createElement('li');
+  li.setAttribute('class', 'column-full');
+  li.setAttribute('data-character-id', character.id);
+
+  var img = document.createElement('img');
+  img.setAttribute('src', character.sprites.other['official-artwork'].front_default);
+
+  var name = document.createElement('p');
+  name.textContent = character.name.toUpperCase();
+  name.setAttribute('class', 'name');
+
+  var characterData = {};
+
+  characterData.name = character.name.toUpperCase();
+  characterData.image = character.sprites.other['official-artwork'].front_default;
+  characterData.charID = character.id;
+
+  data.entries.push(CharacterData);
+
+  li.appendChild(name);
+  li.appendChild(img);
+
+  return li;
 }
