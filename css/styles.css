@@ -1,0 +1,55 @@
+* {
+  font-family: "Noto Sans", sans-serif;
+}
+
+header {
+  background-color: #ee1515;
+}
+
+body {
+  background-color: #f0f0f0;
+}
+
+form {
+  background-color: #222224;
+  color: #f0f0f0;
+}
+
+.title-heading {
+  padding-left: 20px;
+  margin-left: 20px;
+  color: white;
+}
+
+.link-nav {
+  padding-left: 20px;
+  margin-left: 20px;
+  padding-top: 10px;
+  color: white;
+}
+
+.button-search {
+  cursor: pointer;
+  background-color: #f0f0f0;
+}
+
+.hidden {
+  display: none;
+}
+
+.nav-home {
+  text-decoration: none;
+  color: white;
+}
+
+ul {
+  flex-wrap: wrap;
+  list-style: none;
+  padding-left: 0;
+  justify-content: center;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 2rem;
+}
