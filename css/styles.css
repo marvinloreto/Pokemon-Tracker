@@ -66,9 +66,14 @@ ul {
 
 .details-list > li {
   padding-top: 5px;
+  font-weight: bold;
 }
 
 .details-list {
   text-align: center;
   background-color: lightgray;
+}
+
+.image-shiny {
+  width: 25%;
 }
