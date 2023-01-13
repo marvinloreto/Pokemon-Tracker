@@ -49,7 +49,31 @@ ul {
   justify-content: center;
 }
 
+.results-list,
+.details-column {
+  background-color: white;
+}
+
+.results-list:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
 .name {
   font-weight: bold;
   font-size: 2rem;
+}
+
+.details-list > li {
+  padding-top: 5px;
+  font-weight: bold;
+}
+
+.details-list {
+  text-align: center;
+  background-color: lightgray;
+}
+
+.image-shiny {
+  width: 25%;
 }
