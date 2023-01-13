@@ -27,6 +27,11 @@ form {
   border-radius: 5px;
 }
 
+.details-list {
+  width: 100%;
+  margin-bottom: 0;
+}
+
 @media screen and (max-width: 550px) {
   .container.main {
     width: 100%;
@@ -41,7 +46,7 @@ form {
     font-size: small;
   }
 
-  .image {
+  img {
     width: 75%;
   }
 
