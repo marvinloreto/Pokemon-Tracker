@@ -61,10 +61,10 @@ function getCharacterList(character) {
   characterData.image = character.sprites.other['official-artwork'].front_default;
   characterData.charID = character.id;
   characterData.type1 = character.types[0].type.name.toUpperCase();
-  if (character.types[1].type.name !== undefined) {
-    characterData.type2 = character.types[1].type.name.toUpperCase();
-  } else {
+  if (typeof character.types[1] === 'undefined') {
     characterData.type2 = 'None';
+  } else {
+    characterData.type2 = character.types[1].type.name.toUpperCase();
   }
   characterData.shinyImage = character.sprites.other['official-artwork'].front_shiny;
 
