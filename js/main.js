@@ -155,11 +155,6 @@ function getFavoriteList(dataEntries) {
   favImage.setAttribute('src', dataEntries.image);
   favImage.setAttribute('class', 'favoriteImage');
 
-  var favName = document.createElement('p');
-  favName.textContent = dataEntries.name.toUpperCase();
-  favName.setAttribute('class', 'name');
-
-  favoriteItem.appendChild(favName);
   favoriteItem.appendChild(favImage);
   favColumn.appendChild(favoriteItem);
 

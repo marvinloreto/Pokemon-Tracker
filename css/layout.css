@@ -56,13 +56,6 @@ form {
 
   p {
     font-size: small;
-  }
-
-  .favorite-poke {
-    width: 100%;
-  }
-
-  #favorites-list {
-    flex-direction: column;
+    font-weight: normal;
   }
 }
