@@ -144,6 +144,9 @@ function handleAddToFavorites(event) {
 }
 
 function getFavoriteList(dataEntries) {
+  var favColumn = document.createElement('div');
+  favColumn.setAttribute('class', 'column-third');
+
   var favoriteItem = document.createElement('div');
   favoriteItem.setAttribute('class', 'favorite-poke');
   favoriteItem.setAttribute('data-character-id', dataEntries.charID);
@@ -158,6 +161,7 @@ function getFavoriteList(dataEntries) {
 
   favoriteItem.appendChild(favName);
   favoriteItem.appendChild(favImage);
+  favColumn.appendChild(favoriteItem);
 
-  return favoriteItem;
+  return favColumn;
 }

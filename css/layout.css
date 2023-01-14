@@ -54,8 +54,8 @@ form {
     margin: 0.25rem;
   }
 
-  .name {
-    font-size: 16px;
+  p {
+    font-size: small;
   }
 
   .favorite-poke {
