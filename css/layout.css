@@ -32,7 +32,7 @@ form {
   margin-bottom: 0;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 500px) {
   .container.main {
     width: 100%;
     margin: auto;
@@ -47,10 +47,15 @@ form {
   }
 
   img {
-    width: 75%;
+    width: 65%;
   }
 
   .ul-nav {
     margin: 0.25rem;
+  }
+
+  p {
+    font-size: small;
+    font-weight: normal;
   }
 }
