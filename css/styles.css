@@ -62,7 +62,12 @@ ul {
   background-color: white;
 }
 
-.results-list:hover {
+.favorite-poke {
+  padding-top: 1px;
+}
+
+.results-list:hover,
+.favorite-poke:hover {
   transform: scale(1.05);
   cursor: pointer;
 }
@@ -101,10 +106,6 @@ img {
 .column-third {
   width: calc(100% / 3.5);
   margin: 10px;
-}
-
-.favorite-poke {
-  padding-top: 1px;
 }
 
 #favorites-list {

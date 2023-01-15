@@ -9,6 +9,7 @@ var titleLink = document.querySelector('.nav-home');
 var favoritesPage = document.querySelector('.favorites-container');
 var favoriteLink = document.querySelector('.nav-favorite');
 var buttonFav = document.querySelector('.add-favorite');
+var favoriteList = document.querySelector('#favorites-list');
 
 buttonSearch.addEventListener('click', handleSearch);
 function handleSearch(event) {
@@ -91,6 +92,7 @@ function getCharacterList(character) {
 }
 
 ul.addEventListener('click', handleListClick);
+favoriteList.addEventListener('click', handleListClick);
 
 function handleListClick(event) {
   var liCharacter = event.target.closest('[data-character-id]');
@@ -121,6 +123,14 @@ function handleListClick(event) {
   favoritesPage.classList.add('hidden');
   detailsPage.classList.remove('hidden');
   data.view = 'details-page';
+
+  for (let i = 0; i < data.favorite.length; i++) {
+    if (Number(liCharacter.getAttribute('data-character-id')) === data.favorite[i].charID) {
+      buttonFav.classList.add('hidden');
+    } else {
+      buttonFav.classList.remove('hidden');
+    }
+  }
 }
 
 var favList = document.querySelector('#favorites-list');
@@ -159,4 +169,5 @@ function getFavoriteList(dataEntries) {
   favColumn.appendChild(favoriteItem);
 
   return favColumn;
+
 }
