@@ -8,8 +8,9 @@ var buttonSearch = document.querySelector('.button-search');
 var titleLink = document.querySelector('.nav-home');
 var favoritesPage = document.querySelector('.favorites-container');
 var favoriteLink = document.querySelector('.nav-favorite');
+var favList = document.querySelector('#favorites-list');
 var buttonFav = document.querySelector('.add-favorite');
-var favoriteList = document.querySelector('#favorites-list');
+var alreadyFav = document.querySelector('.already-favorite');
 
 buttonSearch.addEventListener('click', handleSearch);
 function handleSearch(event) {
@@ -92,10 +93,12 @@ function getCharacterList(character) {
 }
 
 ul.addEventListener('click', handleListClick);
-favoriteList.addEventListener('click', handleListClick);
+favList.addEventListener('click', handleListClick);
 
 function handleListClick(event) {
   var liCharacter = event.target.closest('[data-character-id]');
+
+  console.log(liCharacter);
 
   var nameChar = document.querySelector('.details-name');
   var imgChar = document.querySelector('.details-img');
@@ -124,16 +127,16 @@ function handleListClick(event) {
   detailsPage.classList.remove('hidden');
   data.view = 'details-page';
 
-  for (let i = 0; i < data.favorite.length; i++) {
-    if (Number(liCharacter.getAttribute('data-character-id')) === data.favorite[i].charID) {
+  for (let j = 0; j < data.favorite.length; j++) {
+    if (Number(liCharacter.getAttribute('data-character-id')) === data.favorite[j].charID) {
       buttonFav.classList.add('hidden');
+      alreadyFav.classList.remove('hidden');
     } else {
       buttonFav.classList.remove('hidden');
+      alreadyFav.classList.add('hidden');
     }
   }
 }
-
-var favList = document.querySelector('#favorites-list');
 
 buttonFav.addEventListener('click', handleAddToFavorites);
 function handleAddToFavorites(event) {
@@ -169,5 +172,4 @@ function getFavoriteList(dataEntries) {
   favColumn.appendChild(favoriteItem);
 
   return favColumn;
-
 }
