@@ -182,6 +182,13 @@ function getFavoriteList(dataEntries) {
   return favColumn;
 }
 
+window.addEventListener('DOMContentLoaded', handleDOMLoad);
+function handleDOMLoad(event) {
+  for (let i = 0; i < data.favorite.length; i++) {
+    favList.appendChild(getFavoriteList(data.favorite[i]));
+  }
+}
+
 buttonDelete.addEventListener('click', handleOpenModal);
 function handleOpenModal(event) {
   modal.classList.remove('hidden');
