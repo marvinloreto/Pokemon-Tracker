@@ -8,7 +8,9 @@ var buttonSearch = document.querySelector('.button-search');
 var titleLink = document.querySelector('.nav-home');
 var favoritesPage = document.querySelector('.favorites-container');
 var favoriteLink = document.querySelector('.nav-favorite');
+var favList = document.querySelector('#favorites-list');
 var buttonFav = document.querySelector('.add-favorite');
+var alreadyFav = document.querySelector('.already-favorite');
 
 buttonSearch.addEventListener('click', handleSearch);
 function handleSearch(event) {
@@ -91,6 +93,7 @@ function getCharacterList(character) {
 }
 
 ul.addEventListener('click', handleListClick);
+favList.addEventListener('click', handleListClick);
 
 function handleListClick(event) {
   var liCharacter = event.target.closest('[data-character-id]');
@@ -121,9 +124,20 @@ function handleListClick(event) {
   favoritesPage.classList.add('hidden');
   detailsPage.classList.remove('hidden');
   data.view = 'details-page';
-}
 
-var favList = document.querySelector('#favorites-list');
+  for (let j = 0; j < data.favorite.length; j++) {
+    if (Number(liCharacter.getAttribute('data-character-id')) === data.favorite[j].charID) {
+
+      buttonFav.classList.add('hidden');
+      alreadyFav.classList.remove('hidden');
+      return;
+    } else {
+      buttonFav.classList.remove('hidden');
+      alreadyFav.classList.add('hidden');
+    }
+  }
+
+}
 
 buttonFav.addEventListener('click', handleAddToFavorites);
 function handleAddToFavorites(event) {
