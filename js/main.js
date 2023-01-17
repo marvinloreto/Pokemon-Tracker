@@ -166,6 +166,7 @@ function handleAddToFavorites(event) {
 function getFavoriteList(dataEntries) {
   var favColumn = document.createElement('div');
   favColumn.setAttribute('class', 'column-third');
+  favColumn.setAttribute('id', dataEntries.charID);
 
   var favoriteItem = document.createElement('div');
   favoriteItem.setAttribute('class', 'favorite-poke');
@@ -194,15 +195,24 @@ function handleCloseModal(event) {
 buttonConfirm.addEventListener('click', handleReleasePoke);
 function handleReleasePoke(event) {
   var targetChar = document.querySelector('.detail-row');
+  var favTarget = document.querySelector('.column-third');
 
   // dont forget to delete this log
   console.log(targetChar);
   for (let i = 0; i < data.favorite.length; i++) {
-    if ((Number(data.favorite.charID)) === data.favorite[i].charID) {
+    if (Number(targetChar.getAttribute('data-character-id')) === data.favorite[i].charID) {
       data.favorite.splice(i, 1);
-      return;
+      favList.removeChild(favTarget);
     }
   }
+
+  for (let i = 0; i < data.entries.length; i++) {
+    if (Number(targetChar.getAttribute('data-character-id')) === data.entries[i].charID) {
+      data.entries.splice(i, 1);
+    }
+  }
+  console.log(data.entries);
+  console.log(data.favorite);
   modal.classList.add('hidden');
   resultsPage.classList.add('hidden');
   searchPage.classList.add('hidden');
