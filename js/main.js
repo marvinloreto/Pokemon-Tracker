@@ -193,13 +193,14 @@ function handleCloseModal(event) {
 
 buttonConfirm.addEventListener('click', handleReleasePoke);
 function handleReleasePoke(event) {
-  var targetChar = event.target.closest('[data-character-id]');
+  var targetChar = document.querySelector('.detail-row');
 
   // dont forget to delete this log
   console.log(targetChar);
   for (let i = 0; i < data.favorite.length; i++) {
     if ((Number(data.favorite.charID)) === data.favorite[i].charID) {
       data.favorite.splice(i, 1);
+      return;
     }
   }
   modal.classList.add('hidden');
