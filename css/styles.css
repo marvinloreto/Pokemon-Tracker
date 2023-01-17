@@ -46,6 +46,33 @@ form {
   background-color: #f0f0f0;
 }
 
+.cancel-button {
+  border: none;
+}
+
+.confirm-button {
+  background-color: #ee1515;
+  color: #f0f0f0;
+  border-radius: 5px;
+  border: none;
+  padding: 3px 4px;
+}
+
+.delete-button {
+  text-decoration: none;
+  background-color: #ee1515;
+  color: #f0f0f0;
+  border-radius: 5px;
+  padding: 2.5px 5px;
+  margin: 0 10px 5px 0;
+}
+
+.cancel-button:hover,
+.confirm-button:hover,
+.delete-button:hover {
+  cursor: pointer;
+}
+
 .hidden {
   display: none;
 }
@@ -121,4 +148,43 @@ img {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
+}
+
+.modal-background {
+  background: rgb(0 0 0 / 75%);
+  position: absolute;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.delete-modal {
+  margin: auto;
+  width: 400px;
+  height: 150px;
+  background-color: #f0f0f0;
+  border-radius: 6px;
+  padding: 1rem;
+  position: absolute;
+  text-align: center;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.modal-toggle {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
 }
