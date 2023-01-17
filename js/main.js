@@ -98,8 +98,6 @@ favList.addEventListener('click', handleListClick);
 function handleListClick(event) {
   var liCharacter = event.target.closest('[data-character-id]');
 
-  console.log(liCharacter);
-
   var nameChar = document.querySelector('.details-name');
   var imgChar = document.querySelector('.details-img');
   var indexChar = document.querySelector('.details-pokedexNumber');
@@ -129,13 +127,16 @@ function handleListClick(event) {
 
   for (let j = 0; j < data.favorite.length; j++) {
     if (Number(liCharacter.getAttribute('data-character-id')) === data.favorite[j].charID) {
+
       buttonFav.classList.add('hidden');
       alreadyFav.classList.remove('hidden');
+      return;
     } else {
       buttonFav.classList.remove('hidden');
       alreadyFav.classList.add('hidden');
     }
   }
+
 }
 
 buttonFav.addEventListener('click', handleAddToFavorites);
