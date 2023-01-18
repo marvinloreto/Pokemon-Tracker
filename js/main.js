@@ -11,6 +11,10 @@ var favoriteLink = document.querySelector('.nav-favorite');
 var favList = document.querySelector('#favorites-list');
 var buttonFav = document.querySelector('.add-favorite');
 var alreadyFav = document.querySelector('.already-favorite');
+var buttonDelete = document.querySelector('.delete-button');
+var modal = document.querySelector('.modal-background');
+var buttonCancel = document.querySelector('.cancel-button');
+var buttonConfirm = document.querySelector('.confirm-button');
 
 buttonSearch.addEventListener('click', handleSearch);
 function handleSearch(event) {
@@ -130,10 +134,12 @@ function handleListClick(event) {
 
       buttonFav.classList.add('hidden');
       alreadyFav.classList.remove('hidden');
+      buttonDelete.classList.remove('hidden');
       return;
     } else {
       buttonFav.classList.remove('hidden');
       alreadyFav.classList.add('hidden');
+      buttonDelete.classList.add('hidden');
     }
   }
 
@@ -160,6 +166,7 @@ function handleAddToFavorites(event) {
 function getFavoriteList(dataEntries) {
   var favColumn = document.createElement('div');
   favColumn.setAttribute('class', 'column-third');
+  favColumn.setAttribute('id', dataEntries.charID);
 
   var favoriteItem = document.createElement('div');
   favoriteItem.setAttribute('class', 'favorite-poke');
@@ -173,4 +180,48 @@ function getFavoriteList(dataEntries) {
   favColumn.appendChild(favoriteItem);
 
   return favColumn;
+}
+
+window.addEventListener('DOMContentLoaded', handleDOMLoad);
+function handleDOMLoad(event) {
+  for (let i = 0; i < data.favorite.length; i++) {
+    favList.appendChild(getFavoriteList(data.favorite[i]));
+  }
+}
+
+buttonDelete.addEventListener('click', handleOpenModal);
+function handleOpenModal(event) {
+  modal.classList.remove('hidden');
+}
+
+buttonCancel.addEventListener('click', handleCloseModal);
+function handleCloseModal(event) {
+  modal.classList.add('hidden');
+}
+
+buttonConfirm.addEventListener('click', handleReleasePoke);
+function handleReleasePoke(event) {
+  var targetChar = document.querySelector('.detail-row');
+
+  for (let i = 0; i < data.favorite.length; i++) {
+    if (Number(targetChar.getAttribute('data-character-id')) === data.favorite[i].charID) {
+      data.favorite.splice(i, 1);
+
+      var favTarget = document.getElementById(Number(targetChar.getAttribute('data-character-id')));
+      favList.removeChild(favTarget);
+    }
+  }
+
+  for (let i = 0; i < data.entries.length; i++) {
+    if (Number(targetChar.getAttribute('data-character-id')) === data.entries[i].charID) {
+      data.entries.splice(i, 1);
+    }
+  }
+
+  modal.classList.add('hidden');
+  resultsPage.classList.add('hidden');
+  searchPage.classList.add('hidden');
+  detailsPage.classList.add('hidden');
+  favoritesPage.classList.remove('hidden');
+
 }
