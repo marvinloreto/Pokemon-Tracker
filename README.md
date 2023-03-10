@@ -28,8 +28,8 @@ Here is a link to try the application live: [https://marvinloreto.github.io/ajax
 
 ## Preview
 
-![Preview 1](images/ajax_1.gif)
-![Preview 2](images/ajax_2.gif)
+![Preview 1](images/ajax-1.gif)
+![Preview 2](images/ajax-2.gif)
 
 ### Getting Started
 
