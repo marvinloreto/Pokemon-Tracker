@@ -181,6 +181,8 @@ function getFavoriteList(dataEntries) {
   favoriteItem.appendChild(favImage);
   favColumn.appendChild(favoriteItem);
 
+  emptyList.classList.add('hidden');
+
   return favColumn;
 }
 
@@ -188,7 +190,6 @@ window.addEventListener('DOMContentLoaded', handleDOMLoad);
 function handleDOMLoad(event) {
   for (let i = 0; i < data.favorite.length; i++) {
     favList.appendChild(getFavoriteList(data.favorite[i]));
-    emptyList.classList.add('hidden');
   }
 }
 
@@ -226,5 +227,6 @@ function handleReleasePoke(event) {
   searchPage.classList.add('hidden');
   detailsPage.classList.add('hidden');
   favoritesPage.classList.remove('hidden');
+  location.reload();
 
 }
