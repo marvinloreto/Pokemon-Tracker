@@ -15,6 +15,7 @@ var buttonDelete = document.querySelector('.delete-button');
 var modal = document.querySelector('.modal-background');
 var buttonCancel = document.querySelector('.cancel-button');
 var buttonConfirm = document.querySelector('.confirm-button');
+var emptyList = document.querySelector('.empty-favorites');
 
 buttonSearch.addEventListener('click', handleSearch);
 function handleSearch(event) {
@@ -64,6 +65,7 @@ function pokeName(name) {
 }
 
 function getCharacterList(character) {
+
   var li = document.createElement('li');
   li.setAttribute('class', 'column-full');
   li.setAttribute('data-character-id', character.id);
@@ -186,6 +188,7 @@ window.addEventListener('DOMContentLoaded', handleDOMLoad);
 function handleDOMLoad(event) {
   for (let i = 0; i < data.favorite.length; i++) {
     favList.appendChild(getFavoriteList(data.favorite[i]));
+    emptyList.classList.add('hidden');
   }
 }
 
