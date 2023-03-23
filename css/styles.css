@@ -186,3 +186,8 @@ img {
   width: 100%;
   justify-content: flex-end;
 }
+
+.search-again-details {
+  font-size: 12px;
+  padding-top: 3rem;
+}

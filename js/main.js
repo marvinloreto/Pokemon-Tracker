@@ -16,6 +16,7 @@ var modal = document.querySelector('.modal-background');
 var buttonCancel = document.querySelector('.cancel-button');
 var buttonConfirm = document.querySelector('.confirm-button');
 var emptyList = document.querySelector('.empty-favorites');
+var searchAgain = document.querySelector('.search-again');
 
 buttonSearch.addEventListener('click', handleSearch);
 function handleSearch(event) {
@@ -27,6 +28,7 @@ function handleSearch(event) {
 }
 
 titleLink.addEventListener('click', handleHome);
+searchAgain.addEventListener('click', handleHome);
 function handleHome(event) {
   searchPage.classList.remove('hidden');
   detailsPage.classList.add('hidden');
